@@ -15,7 +15,7 @@ import { DemoProvider } from './contexts/DemoContext';
 function HomeOrDemo() {
   const [searchParams] = useSearchParams();
   if (searchParams.get('demo') === 'true') {
-    return <Navigate to="/demo" replace />;
+    return <Navigate to="/chat?demo=true" replace />;
   }
   return <Home />;
 }
