@@ -6,6 +6,7 @@ import { Chat } from './pages/Chat';
 import { ChatTransitionsDemo } from './pages/ChatTransitionsDemo';
 import { TextReflowDemo } from './pages/TextReflowDemo';
 import { TextReflowDemo2 } from './pages/TextReflowDemo2';
+import { CompensationBenchmarksApp } from './pages/CompensationBenchmarks';
 import { ChatProvider } from './contexts/ChatContext';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
                   <Route path="/payroll" element={<Payroll />} />
                   <Route path="/inbox" element={<Inbox />} />
                   <Route path="/settings" element={<Settings />} />
+                  <Route path="/compensation" element={<CompensationBenchmarksApp />} />
                 </Routes>
               </AppLayout>
             }
