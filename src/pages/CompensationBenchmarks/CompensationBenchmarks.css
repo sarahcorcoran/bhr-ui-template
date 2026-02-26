@@ -1,0 +1,1714 @@
+/* ============================================
+   Compensation Benchmarks - Styles
+   ============================================ */
+
+/* ---- Page Layout ---- */
+.comp-benchmarks {
+  padding: 32px 40px;
+  animation: compFadeIn 0.3s ease-out;
+}
+
+@keyframes compFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Breadcrumb ---- */
+.comp-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0b4fd1;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.comp-breadcrumb:hover {
+  color: #0940a8;
+}
+
+/* ---- Page Header ---- */
+.comp-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.comp-page-title {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 52px;
+  color: var(--color-primary-strong);
+  margin: 0;
+}
+
+.comp-page-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ---- Controls Bar ---- */
+.comp-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.comp-controls-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.comp-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.comp-jobs-count {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-primary-strong);
+}
+
+.comp-jobs-count span {
+  font-weight: 400;
+  color: var(--text-neutral-medium);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+}
+
+.comp-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-medium);
+}
+
+.comp-dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  background: var(--surface-neutral-white);
+  border: 1px solid var(--border-neutral-medium);
+  border-radius: 1000px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-neutral-x-strong);
+  cursor: pointer;
+  box-shadow: var(--shadow-100);
+  transition: background 0.2s;
+}
+
+.comp-dropdown:hover {
+  background: var(--surface-neutral-xx-weak);
+}
+
+/* ---- Department Group ---- */
+.comp-dept-group {
+  background: var(--surface-neutral-white);
+  border: 1px solid var(--border-neutral-xx-weak);
+  border-radius: var(--radius-large);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.comp-dept-header {
+  padding: 24px 28px 16px;
+}
+
+.comp-dept-name {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-primary-strong);
+  display: inline;
+}
+
+.comp-dept-region {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-neutral-medium);
+  margin-left: 10px;
+}
+
+/* ---- Job Table ---- */
+.comp-job-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comp-job-table thead th {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-neutral-medium);
+  text-align: left;
+  padding: 10px 28px;
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+  border-top: 1px solid var(--border-neutral-xx-weak);
+  white-space: nowrap;
+}
+
+.comp-job-table thead th:last-child {
+  padding-right: 28px;
+}
+
+.comp-job-table tbody tr {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.comp-job-table tbody tr:hover {
+  background: var(--surface-neutral-xx-weak);
+}
+
+.comp-job-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+}
+
+.comp-job-table tbody td {
+  padding: 14px 28px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-x-strong);
+  vertical-align: middle;
+}
+
+.comp-job-title-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.comp-job-title-link {
+  font-weight: 600;
+  color: #0b4fd1;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.comp-job-title-link:hover {
+  text-decoration: underline;
+}
+
+.comp-job-level {
+  font-size: 13px;
+  color: var(--text-neutral-weak);
+  font-weight: 400;
+}
+
+.comp-pay-rate-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---- Pay Range Bar (Overview) ---- */
+.comp-range-bar-container {
+  position: relative;
+  width: 100%;
+  min-width: 300px;
+}
+
+.comp-range-bar-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.comp-range-bar-tick {
+  font-size: 11px;
+  color: var(--text-neutral-weak);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.comp-range-bar-track {
+  position: relative;
+  height: 8px;
+  background: var(--surface-neutral-x-weak);
+  border-radius: 4px;
+  margin: 6px 0;
+}
+
+.comp-range-bar-fill {
+  position: absolute;
+  height: 100%;
+  background: #c6c2bf;
+  border-radius: 4px;
+}
+
+.comp-range-bar-midline {
+  position: absolute;
+  top: -4px;
+  width: 2px;
+  height: 16px;
+  background: #0051A8;
+  border-radius: 1px;
+}
+
+.comp-employee-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  z-index: 2;
+  cursor: default;
+}
+
+.comp-employee-dot-group {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  z-index: 2;
+  background: var(--color-primary-medium);
+}
+
+/* ---- Job Detail Page ---- */
+.comp-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.comp-detail-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.comp-detail-title {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 52px;
+  color: var(--color-primary-strong);
+  margin: 0;
+}
+
+.comp-detail-location {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  color: var(--text-neutral-medium);
+  font-weight: 400;
+}
+
+.comp-detail-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.comp-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-medium);
+}
+
+.comp-pagination-link {
+  color: #0b4fd1;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.comp-pagination-link:hover {
+  color: #0940a8;
+}
+
+.comp-pagination-separator {
+  color: var(--border-neutral-medium);
+}
+
+/* ---- Section Header ---- */
+.comp-section-header {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-primary-strong);
+  margin: 32px 0 20px;
+}
+
+/* ---- Benchmark Bars (Detail Page) ---- */
+.comp-benchmark-section {
+  background: var(--surface-neutral-white);
+  border: 1px solid var(--border-neutral-xx-weak);
+  border-radius: var(--radius-large);
+  padding: 28px;
+}
+
+.comp-benchmark-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.comp-benchmark-row:not(:last-child) {
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+}
+
+.comp-benchmark-info {
+  min-width: 220px;
+  max-width: 220px;
+}
+
+.comp-benchmark-source-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.comp-benchmark-color-bar {
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.comp-benchmark-source-name {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-neutral-x-strong);
+}
+
+.comp-benchmark-matched-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-medium);
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comp-benchmark-age {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--text-neutral-weak);
+}
+
+.comp-benchmark-bar-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.comp-benchmark-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 4px;
+  position: relative;
+}
+
+.comp-benchmark-bar-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--text-neutral-medium);
+  text-align: center;
+}
+
+.comp-benchmark-bar-label-value {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-neutral-x-strong);
+  display: block;
+}
+
+.comp-benchmark-bar-track {
+  position: relative;
+  height: 6px;
+  background: transparent;
+  margin: 8px 0;
+}
+
+.comp-benchmark-bar-line {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  border-radius: 1px;
+}
+
+.comp-benchmark-bar-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid;
+}
+
+.comp-benchmark-bar-end {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 14px;
+}
+
+/* ---- Company Pay Band Bar ---- */
+.comp-payband-section {
+  padding: 20px 0 4px;
+}
+
+.comp-payband-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.comp-payband-color-bar {
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  background: #c6c2bf;
+}
+
+.comp-payband-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-neutral-x-strong);
+}
+
+.comp-payband-subtitle {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-medium);
+}
+
+.comp-payband-info {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--text-neutral-weak);
+}
+
+/* ---- Employees Table ---- */
+.comp-employees-section {
+  background: var(--surface-neutral-white);
+  border: 1px solid var(--border-neutral-xx-weak);
+  border-radius: var(--radius-large);
+  overflow: hidden;
+}
+
+.comp-employees-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+}
+
+.comp-employees-title {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-primary-strong);
+}
+
+.comp-employees-count {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-neutral-medium);
+  margin-left: 8px;
+}
+
+.comp-emp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comp-emp-table thead th {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-neutral-medium);
+  text-align: left;
+  padding: 10px 28px;
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+  border-top: 1px solid var(--border-neutral-xx-weak);
+  white-space: nowrap;
+}
+
+.comp-emp-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+}
+
+.comp-emp-table tbody td {
+  padding: 12px 28px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-x-strong);
+  vertical-align: middle;
+}
+
+.comp-emp-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.comp-emp-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-xx-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+.comp-emp-name-link {
+  font-weight: 500;
+  color: #0b4fd1;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.comp-emp-name-link:hover {
+  text-decoration: underline;
+}
+
+/* Mini pay band in employee table */
+.comp-mini-payband {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 140px;
+  font-size: 12px;
+  color: var(--text-neutral-weak);
+}
+
+.comp-mini-payband-track {
+  flex: 1;
+  height: 6px;
+  background: var(--surface-neutral-x-weak);
+  border-radius: 3px;
+  position: relative;
+  min-width: 60px;
+}
+
+.comp-mini-payband-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: #c6c2bf;
+  border-radius: 3px;
+}
+
+.comp-mini-payband-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+/* ---- Modal ---- */
+.comp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: compModalOverlayIn 0.25s ease-out;
+}
+
+@keyframes compModalOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.comp-modal {
+  background: var(--surface-neutral-white);
+  border-radius: var(--radius-large);
+  width: 95%;
+  max-width: 960px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  animation: compModalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes compModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.comp-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px 16px;
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+}
+
+.comp-modal-title {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-primary-strong);
+  margin: 0;
+}
+
+.comp-modal-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.comp-mercer-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-medium);
+}
+
+.comp-mercer-logo {
+  height: 20px;
+  width: auto;
+}
+
+.comp-modal-close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-neutral-weak);
+  border-radius: 50%;
+  background: var(--surface-neutral-white);
+  cursor: pointer;
+  color: var(--text-neutral-medium);
+  transition: all 0.2s;
+}
+
+.comp-modal-close:hover {
+  background: var(--surface-neutral-xx-weak);
+  color: var(--text-neutral-xx-strong);
+}
+
+/* ---- Job Context Bar ---- */
+.comp-job-context {
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+}
+
+.comp-job-context-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--text-neutral-weak);
+  margin-bottom: 4px;
+}
+
+.comp-job-context-title {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-neutral-xx-strong);
+  margin-bottom: 6px;
+}
+
+.comp-job-context-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-medium);
+}
+
+.comp-job-context-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---- Modal Body ---- */
+.comp-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+}
+
+/* ---- Modal Footer ---- */
+.comp-modal-footer {
+  padding: 16px 32px;
+  border-top: 1px solid var(--border-neutral-xx-weak);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ---- Agent Thinking State ---- */
+.comp-thinking-container {
+  background: var(--surface-neutral-xx-weak);
+  border: 1px solid var(--border-neutral-xx-weak);
+  border-radius: var(--radius-x-small);
+  padding: 28px;
+}
+
+.comp-thinking-header {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-neutral-x-strong);
+  margin-bottom: 20px;
+}
+
+.comp-thinking-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-medium);
+  transition: color 0.3s;
+}
+
+.comp-thinking-step.active {
+  color: var(--text-neutral-x-strong);
+}
+
+.comp-thinking-step.complete {
+  color: var(--text-neutral-x-strong);
+}
+
+.comp-thinking-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.comp-thinking-check {
+  color: var(--color-primary-strong);
+}
+
+.comp-thinking-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary-medium);
+  animation: compPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes compPulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.comp-thinking-pending {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-neutral-weak);
+}
+
+/* ---- Matched Job Card ---- */
+.comp-matched-card {
+  background: var(--surface-neutral-white);
+  border: 1px solid var(--border-neutral-x-weak);
+  border-radius: var(--radius-x-small);
+  padding: 24px;
+  animation: compCardIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes compCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comp-matched-card-inner {
+  display: flex;
+  gap: 28px;
+}
+
+.comp-matched-card-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.comp-matched-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.comp-matched-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-neutral-xx-strong);
+}
+
+.comp-level-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  background: var(--surface-neutral-x-weak);
+  border-radius: 1000px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-neutral-medium);
+}
+
+.comp-matched-meta {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-medium);
+  margin-bottom: 4px;
+}
+
+.comp-matched-survey {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-weak);
+  margin-bottom: 16px;
+}
+
+/* ---- Matched Pay Range ---- */
+.comp-matched-range {
+  margin-top: 16px;
+}
+
+.comp-matched-range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.comp-matched-range-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  text-align: center;
+}
+
+.comp-matched-range-label-text {
+  font-size: 11px;
+  color: var(--text-neutral-weak);
+  display: block;
+}
+
+.comp-matched-range-label-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-neutral-x-strong);
+  display: block;
+}
+
+.comp-matched-range-track {
+  position: relative;
+  height: 8px;
+  margin: 8px 0;
+}
+
+.comp-matched-range-bar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: #c6c2bf;
+  border-radius: 4px;
+}
+
+.comp-matched-range-line {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  border-radius: 1px;
+  background: #0051A8;
+}
+
+.comp-matched-range-end-cap {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 14px;
+  background: #0051A8;
+}
+
+.comp-matched-range-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+
+.comp-matched-range-annotation {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-medium);
+  margin-top: 8px;
+}
+
+/* ---- Confidence Ring ---- */
+.comp-confidence-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.comp-confidence-svg {
+  width: 88px;
+  height: 88px;
+}
+
+.comp-confidence-text {
+  font-family: 'Fields', system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  fill: var(--text-neutral-xx-strong);
+}
+
+.comp-confidence-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  color: var(--text-neutral-weak);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ---- Why This Match (inside card) ---- */
+.comp-why-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0b4fd1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 12px 0 0;
+  margin-top: 8px;
+  transition: opacity 0.2s;
+}
+
+.comp-why-toggle:hover {
+  opacity: 0.8;
+}
+
+.comp-why-content {
+  animation: compExpandIn 0.3s ease-out;
+  padding-top: 12px;
+}
+
+@keyframes compExpandIn {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 2000px; }
+}
+
+.comp-why-reasoning {
+  margin-bottom: 0;
+}
+
+.comp-why-item {
+  padding: 8px 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-neutral-x-strong);
+}
+
+.comp-why-item strong {
+  font-weight: 600;
+}
+
+.comp-why-item-label {
+  font-weight: 600;
+  color: var(--text-neutral-xx-strong);
+}
+
+/* ---- Filter Controls ---- */
+.comp-filters-section {
+  padding: 20px;
+  background: var(--surface-neutral-xx-weak);
+  border-radius: var(--radius-xx-small);
+  margin-top: 20px;
+}
+
+.comp-filters-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.comp-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.comp-filter-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-neutral-medium);
+}
+
+.comp-filter-select {
+  height: 36px;
+  padding: 0 12px;
+  background: var(--surface-neutral-white);
+  border: 1px solid var(--border-neutral-weak);
+  border-radius: var(--radius-xx-small);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-x-strong);
+  cursor: pointer;
+}
+
+/* ---- Search Results Table ---- */
+.comp-results-section {
+  margin-top: 20px;
+}
+
+.comp-results-header {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-neutral-x-strong);
+  margin-bottom: 12px;
+}
+
+.comp-results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comp-results-table thead th {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-neutral-medium);
+  text-align: left;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+  white-space: nowrap;
+}
+
+.comp-results-table tbody tr {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.comp-results-table tbody tr:hover {
+  background: var(--surface-neutral-xx-weak);
+}
+
+.comp-results-table tbody tr.selected {
+  background: var(--color-primary-weak);
+}
+
+.comp-results-table tbody td {
+  padding: 12px 16px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-x-strong);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+}
+
+.comp-radio {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-neutral-medium);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.comp-radio.selected {
+  border-color: var(--color-primary-strong);
+}
+
+.comp-radio-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary-strong);
+}
+
+.comp-view-desc-link {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  color: #0b4fd1;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.comp-view-desc-link:hover {
+  text-decoration: underline;
+}
+
+/* ---- Job Description Drawer ---- */
+.comp-drawer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 10;
+  border-radius: var(--radius-large);
+  overflow: hidden;
+}
+
+.comp-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  max-width: 90%;
+  background: var(--surface-neutral-white);
+  box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  animation: compDrawerIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes compDrawerIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.comp-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-neutral-xx-weak);
+}
+
+.comp-drawer-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-neutral-xx-strong);
+}
+
+.comp-drawer-subtitle {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-medium);
+}
+
+.comp-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.comp-drawer-description {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-neutral-x-strong);
+}
+
+/* ---- Toast ---- */
+.comp-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: #2e7918;
+  color: white;
+  border-radius: var(--radius-full);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  animation: compSlideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  white-space: nowrap;
+}
+
+@keyframes compSlideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.comp-toast-exit {
+  animation: compSlideUp 0.3s ease-in forwards;
+}
+
+@keyframes compSlideUp {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+}
+
+/* ---- Ellipsis action menu ---- */
+.comp-action-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: var(--surface-neutral-white);
+  border: 1px solid var(--border-neutral-xx-weak);
+  border-radius: var(--radius-xx-small);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  min-width: 140px;
+  z-index: 20;
+  animation: compFadeIn 0.15s ease-out;
+}
+
+.comp-action-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-x-strong);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+}
+
+.comp-action-menu-item:hover {
+  background: var(--surface-neutral-xx-weak);
+}
+
+/* ---- Re-search animation ---- */
+.comp-research-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-medium);
+}
+
+.comp-research-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-neutral-weak);
+  border-top-color: var(--color-primary-strong);
+  border-radius: 50%;
+  animation: compSpin 0.8s linear infinite;
+}
+
+@keyframes compSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Edge case: low confidence note ---- */
+.comp-low-confidence-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #fff8f0;
+  border: 1px solid #f0d4a8;
+  border-radius: var(--radius-xx-small);
+  margin-top: 12px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: #8a6d3b;
+  line-height: 1.5;
+}
+
+/* ---- Edge case: no results ---- */
+.comp-no-results {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text-neutral-medium);
+}
+
+.comp-no-results-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-neutral-x-strong);
+  margin-bottom: 8px;
+}
+
+.comp-no-results-text {
+  font-size: 14px;
+}
+
+/* ---- Close match note ---- */
+.comp-close-matches-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--surface-neutral-xx-weak);
+  border-radius: var(--radius-xx-small);
+  margin-top: 12px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text-neutral-medium);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.comp-close-matches-note:hover {
+  background: var(--surface-neutral-x-weak);
+}
+
+/* ---- Empty matched job ---- */
+.comp-empty-match {
+  background: var(--surface-neutral-xx-weak);
+  border: 1px solid var(--border-neutral-xx-weak);
+  border-radius: var(--radius-x-small);
+  padding: 32px;
+  text-align: center;
+}
+
+.comp-empty-match-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary-strong);
+  margin-bottom: 4px;
+}
+
+.comp-empty-match-text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-medium);
+}
+
+/* ---- Confidence Badge (results table) ---- */
+.comp-confidence-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 1000px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.comp-confidence-badge--high {
+  background: #e8f0e6;
+  color: #3d6b32;
+}
+
+.comp-confidence-badge--medium {
+  background: #f5eedd;
+  color: #7a6230;
+}
+
+.comp-confidence-badge--low {
+  background: #eeedeb;
+  color: #6b6965;
+}
+
+/* ---- Confidence Tooltip ---- */
+.comp-confidence-ring-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+@keyframes compTooltipIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.comp-confidence-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  padding: 10px 14px;
+  background: var(--text-neutral-xx-strong);
+  color: white;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: var(--radius-xx-small);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 30;
+  pointer-events: none;
+  animation: compTooltipIn 0.15s ease-out;
+}
+
+.comp-confidence-tooltip .comp-filter-match-label,
+.comp-confidence-tooltip .comp-filter-miss-label {
+  color: rgba(255,255,255,0.85);
+}
+
+.comp-confidence-tooltip .comp-filter-match {
+  color: #8fce82;
+}
+
+.comp-confidence-tooltip .comp-filter-miss {
+  color: rgba(255,255,255,0.45);
+}
+
+.comp-confidence-tooltip .comp-filter-breakdown-sep {
+  color: rgba(255,255,255,0.35);
+}
+
+.comp-confidence-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--text-neutral-xx-strong);
+}
+
+.comp-confidence-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.comp-confidence-info-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: help;
+  color: var(--text-neutral-weak);
+}
+
+.comp-confidence-info-icon .comp-confidence-tooltip {
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---- Confidence Badge Hover Tooltip (results table) ---- */
+.comp-confidence-badge-wrapper {
+  position: relative;
+  display: inline-flex;
+  cursor: default;
+}
+
+.comp-badge-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 14px;
+  background: var(--text-neutral-xx-strong);
+  border-radius: var(--radius-xx-small);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 30;
+  pointer-events: none;
+  animation: compTooltipIn 0.15s ease-out;
+  white-space: nowrap;
+}
+
+.comp-badge-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--text-neutral-xx-strong);
+}
+
+.comp-badge-tooltip .comp-filter-breakdown {
+  gap: 3px;
+}
+
+.comp-badge-tooltip .comp-filter-match-label,
+.comp-badge-tooltip .comp-filter-miss-label {
+  color: rgba(255,255,255,0.85);
+}
+
+.comp-badge-tooltip .comp-filter-match {
+  color: #8fce82;
+}
+
+.comp-badge-tooltip .comp-filter-miss {
+  color: rgba(255,255,255,0.45);
+}
+
+.comp-badge-tooltip .comp-filter-breakdown-sep {
+  color: rgba(255,255,255,0.35);
+}
+
+/* ---- Filter Match Breakdown ---- */
+
+.comp-filter-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.comp-filter-breakdown-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.comp-filter-breakdown-sep {
+  color: var(--text-neutral-weak);
+  margin: 0 1px;
+  font-size: 8px;
+}
+
+.comp-filter-match {
+  color: #3d6b32;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.comp-filter-miss {
+  color: #9e9a96;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.comp-filter-match-label {
+  color: #3d6b32;
+}
+
+.comp-filter-miss-label {
+  color: #9e9a96;
+}
+
+/* Why this match? filter summary */
+.comp-why-filter-summary {
+  padding: 10px 14px;
+  background: var(--surface-neutral-xx-weak);
+  border-radius: var(--radius-xx-small);
+  margin-bottom: 12px;
+}
+
+.comp-why-filter-summary .comp-filter-breakdown {
+  font-size: 12px;
+  gap: 3px;
+}
+
+.comp-why-filter-summary .comp-filter-match,
+.comp-why-filter-summary .comp-filter-miss,
+.comp-why-filter-summary .comp-filter-match-label,
+.comp-why-filter-summary .comp-filter-miss-label {
+  font-size: 12px;
+}
+
+.comp-why-filter-summary .comp-filter-breakdown-sep {
+  font-size: 9px;
+  margin: 0 2px;
+}

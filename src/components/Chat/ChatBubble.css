@@ -1,0 +1,78 @@
+/* ─── Message Row ─── */
+
+.bubble-row {
+  display: flex;
+  gap: 8px;
+  animation: msgAppear 0.25s ease-out;
+}
+
+@keyframes msgAppear {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bubble-row--user {
+  justify-content: flex-end;
+}
+
+.bubble-row--ai {
+  align-items: flex-start;
+}
+
+/* ─── Avatar (AI only) ─── */
+
+.bubble-avatar {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-primary-strong);
+  color: #fff;
+  font-family: 'Fields', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+/* ─── Content Wrapper (AI — holds bubble + card) ─── */
+
+.bubble-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 85%;
+  min-width: 0;
+}
+
+/* ─── Bubble ─── */
+
+.bubble {
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  word-wrap: break-word;
+}
+
+.bubble--user {
+  background: var(--color-primary-strong);
+  color: #fff;
+  border-radius: 16px 16px 4px 16px;
+  max-width: 85%;
+}
+
+.bubble--ai {
+  background: var(--surface-neutral-white);
+  color: var(--text-neutral-xx-strong);
+  border: 1px solid var(--border-neutral-xx-weak);
+  border-radius: 16px 16px 16px 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* ─── Card Slot ─── */
+
+.bubble-card-slot {
+  max-width: 100%;
+}

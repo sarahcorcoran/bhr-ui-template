@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Icon } from '../Icon';
-import bamboohrLogo from '../../assets/images/bamboohr-logo.svg';
+import pineappleLogo from '../../assets/images/pineapple-logo-cropped.png';
 
 interface GlobalHeaderProps {
   className?: string;
@@ -39,9 +39,9 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
     >
       {/* Logo */}
       <img
-        src={bamboohrLogo}
-        alt="BambooHR"
-        className="w-[194px] h-[29px]"
+        src={pineappleLogo}
+        alt="Pineapple Inc"
+        className="h-[48px] w-auto"
       />
 
       {/* Right Section */}

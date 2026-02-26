@@ -1,0 +1,6 @@
+/* Full-viewport page for standalone AskBambooHR chat */
+.ask-page {
+  height: 100vh;
+  height: 100dvh;
+  background: var(--surface-neutral-x-weak);
+}

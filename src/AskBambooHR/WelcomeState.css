@@ -1,0 +1,52 @@
+/* ─── Welcome Empty State ─── */
+
+.welcome-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background: var(--surface-neutral-white);
+}
+
+.welcome-state__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: welcomeFadeIn 0.4s ease-out;
+}
+
+@keyframes welcomeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-state__heading {
+  font-family: 'Fields', 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.15;
+  color: var(--color-primary-strong);
+  margin: 0 0 6px;
+}
+
+.welcome-state__subtext {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-neutral-medium);
+  margin: 0 0 24px;
+}
+
+.welcome-state__suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

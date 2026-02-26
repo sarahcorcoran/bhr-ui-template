@@ -1,0 +1,164 @@
+/* ============================================
+   Stacked Field — Label above, input below
+   Matches sarah-experiments form field style
+   ============================================ */
+
+.sfield {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ─── Label ─── */
+
+.sfield__label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--text-neutral-x-strong);
+}
+
+.sfield__req {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+/* ─── Text Input ─── */
+
+.sfield__input {
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-neutral-medium);
+  border-radius: var(--radius-xx-small, 6px);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--text-neutral-strong);
+  background: var(--surface-neutral-white);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 1px 1px 0px 1px rgba(56, 49, 47, 0.04);
+}
+
+.sfield__input::placeholder {
+  color: var(--text-neutral-weak);
+}
+
+.sfield__input:focus {
+  border-color: var(--color-primary-strong);
+  box-shadow: 0 0 0 2px rgba(46, 121, 24, 0.12);
+}
+
+/* ─── Input with suffix (e.g. "hrs") ─── */
+
+.sfield__input-with-suffix {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sfield__input--with-suffix {
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.sfield__suffix {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  color: var(--text-neutral-medium);
+  white-space: nowrap;
+}
+
+/* ─── FormDropdown integration ─── */
+
+.sfield__dropdown {
+  width: 100%;
+}
+
+.sfield__dropdown label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--text-neutral-x-strong);
+}
+
+/* ─── File display ─── */
+
+.sfield__file-display {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--border-neutral-medium);
+  border-radius: var(--radius-xx-small, 6px);
+  background: var(--surface-neutral-white);
+  box-shadow: 1px 1px 0px 1px rgba(56, 49, 47, 0.04);
+}
+
+.sfield__file-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-primary-strong);
+}
+
+/* ─── Date Field ─── */
+
+.sfield__date-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-neutral-medium);
+  border-radius: var(--radius-xx-small, 6px);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--text-neutral-strong);
+  background: var(--surface-neutral-white);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 1px 1px 0px 1px rgba(56, 49, 47, 0.04);
+}
+
+.sfield__date-input:hover {
+  border-color: var(--border-neutral-strong, var(--border-neutral-medium));
+}
+
+.sfield__date-value {
+  color: var(--text-neutral-strong);
+}
+
+.sfield__date-placeholder {
+  color: var(--text-neutral-weak);
+}
+
+.sfield__date-icon {
+  flex-shrink: 0;
+  color: var(--icon-neutral-strong);
+}
+
+.sfield__calendar-popup {
+  position: relative;
+  z-index: 50;
+  margin-top: 4px;
+}
+
+.sfield--error .sfield__date-input {
+  border-color: #dc2626;
+}
+
+/* ─── Error ─── */
+
+.sfield--error .sfield__input,
+.sfield--error .sfield__file-display {
+  border-color: #dc2626;
+}
+
+.sfield__error {
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: -2px;
+}

@@ -1,0 +1,186 @@
+/* ============================================
+   Inline Field — Row Layout (label LEFT, value RIGHT)
+   ============================================ */
+
+.ifield {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+  min-height: 44px;
+  gap: 4px;
+}
+
+.ifield:hover {
+  background: var(--surface-neutral-xx-weak);
+}
+
+.ifield--editing {
+  cursor: default;
+  background: var(--surface-neutral-xx-weak);
+}
+
+/* ─── Needs Input (green highlight) ─── */
+
+.ifield--needs-input {
+  background: #f0fdf4;
+  border-left: 3px solid var(--color-primary-strong);
+}
+
+.ifield--needs-input:hover {
+  background: #e6f7e0;
+}
+
+:root.dark .ifield--needs-input {
+  background: rgba(46, 121, 24, 0.08);
+}
+
+:root.dark .ifield--needs-input:hover {
+  background: rgba(46, 121, 24, 0.12);
+}
+
+/* ─── Error ─── */
+
+.ifield--error {
+  border-left: 3px solid #dc2626;
+  background: #fef2f2;
+}
+
+:root.dark .ifield--error {
+  background: rgba(220, 38, 38, 0.06);
+}
+
+/* ─── Hover indicators ─── */
+
+/* Text field: subtle underline on hover */
+.ifield--text .ifield__display {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.12s ease;
+}
+
+.ifield--text:hover .ifield__display {
+  border-bottom-color: var(--border-neutral-weak);
+}
+
+/* Select field: chevron visible on hover */
+.ifield__chevron {
+  font-size: 10px;
+  color: var(--text-neutral-weak);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  margin-left: 4px;
+}
+
+.ifield--select:hover .ifield__chevron {
+  opacity: 1;
+}
+
+/* ─── Label (left side) ─── */
+
+.ifield__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-neutral-medium);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.ifield__req {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+/* ─── Value (right side) ─── */
+
+.ifield__value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ifield__display {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-neutral-xx-strong);
+  text-align: right;
+}
+
+.ifield__display--empty {
+  color: var(--text-neutral-weak);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* ─── Inline Inputs ─── */
+
+.ifield__input,
+.ifield__select {
+  width: 100%;
+  max-width: 220px;
+  padding: 5px 8px;
+  border: 1px solid var(--border-neutral-weak);
+  border-radius: 6px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text-neutral-xx-strong);
+  background: var(--surface-neutral-white);
+  outline: none;
+  text-align: right;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.ifield__input:focus,
+.ifield__select:focus {
+  border-color: var(--color-primary-strong);
+  box-shadow: 0 0 0 2px rgba(46, 121, 24, 0.12);
+}
+
+.ifield__select {
+  cursor: pointer;
+  appearance: auto;
+  text-align: left;
+  max-width: 100%;
+}
+
+/* ─── File Upload Button ─── */
+
+.ifield__upload-btn {
+  padding: 6px 16px;
+  border: 2px dashed var(--color-primary-strong);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-primary-strong);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.ifield__upload-btn:hover {
+  background: #f0fdf4;
+}
+
+:root.dark .ifield__upload-btn:hover {
+  background: rgba(46, 121, 24, 0.08);
+}
+
+.ifield__file-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary-strong);
+}
+
+/* ─── Error Message ─── */
+
+.ifield__error {
+  width: 100%;
+  font-size: 12px;
+  color: #dc2626;
+  text-align: right;
+  margin-top: 2px;
+}

@@ -1,0 +1,76 @@
+/* ─── Input Bar — Matches AIChatPanel expanded view (clean pill) ─── */
+
+.chat-input {
+  flex-shrink: 0;
+  padding: 16px 20px 20px;
+  background: var(--surface-neutral-white);
+  border-radius: 0 0 20px 20px;
+}
+
+/* Clean rounded pill — matches expanded view input */
+.chat-input__pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface-neutral-white);
+  border: 1px solid var(--border-neutral-weak);
+  border-radius: 9999px;
+  padding: 10px 16px 10px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.chat-input__pill:focus-within {
+  border-color: var(--border-neutral-medium);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Textarea ─── */
+
+.chat-input__textarea {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.47;
+  color: var(--text-neutral-strong);
+  resize: none;
+  outline: none;
+  overflow: hidden;
+}
+
+.chat-input__textarea::placeholder {
+  color: var(--text-neutral-medium);
+}
+
+.chat-input__textarea:disabled {
+  opacity: 0.5;
+}
+
+/* ─── Send Button ─── */
+
+.chat-input__send {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  padding: 0;
+}
+
+.chat-input__send:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.chat-input__send:disabled {
+  opacity: 0.35;
+  cursor: default;
+}

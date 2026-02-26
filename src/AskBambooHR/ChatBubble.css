@@ -1,0 +1,99 @@
+/* ─── Message Row ─── */
+
+.bubble-row {
+  display: flex;
+  gap: 8px;
+  animation: msgAppear 0.25s ease-out;
+}
+
+@keyframes msgAppear {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bubble-row--user {
+  justify-content: flex-end;
+  padding-left: 34px;
+}
+
+.bubble-row--ai {
+  align-items: flex-start;
+}
+
+/* ─── Content Wrapper (AI — holds bubble + card + options) ─── */
+
+.bubble-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* ─── Bubble ─── */
+
+.bubble {
+  font-size: 15px;
+  line-height: 1.47;
+  word-wrap: break-word;
+}
+
+/* User bubble — white background, matching AIChatPanel expanded view */
+.bubble--user {
+  background: var(--surface-neutral-white);
+  color: var(--text-neutral-x-strong);
+  border-radius: 16px 16px 4px 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--border-neutral-weak);
+}
+
+/* AI bubble — no background, just text */
+.bubble--ai {
+  color: var(--text-neutral-xx-strong);
+  padding: 0;
+  white-space: pre-line;
+}
+
+/* ─── Card Slot ─── */
+
+.bubble-card-slot {
+  max-width: 100%;
+}
+
+/* ─── Option Buttons ─── */
+
+.bubble-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ─── Suggestion Pill — shared style for ALL suggestion buttons ─── */
+/* Used in: welcome state, clarifying questions, out-of-scope redirects */
+
+.suggestion-pill {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: var(--text-neutral-strong);
+  background: var(--surface-neutral-white, #fff);
+  border: 1px solid var(--border-neutral-weak, #e0ddd9);
+  border-radius: 18px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.suggestion-pill:hover {
+  background: var(--surface-neutral-xx-weak, #f7f5f3);
+  border-color: var(--border-neutral-weak, #e0ddd9);
+}
+
+.suggestion-pill:active {
+  transform: scale(0.98);
+}

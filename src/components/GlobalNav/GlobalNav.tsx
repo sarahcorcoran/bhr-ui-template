@@ -19,7 +19,7 @@ const navItems: NavItem[] = [
   { path: '/hiring', label: 'Hiring', icon: 'id-badge' },
   { path: '/reports', label: 'Reports', icon: 'chart-pie-simple' },
   { path: '/files', label: 'Files', icon: 'file-lines' },
-  { path: '/payroll', label: 'Payroll', icon: 'circle-dollar' },
+  { path: '/compensation', label: 'Compensation', icon: 'circle-dollar' },
 ];
 
 interface GlobalNavProps {

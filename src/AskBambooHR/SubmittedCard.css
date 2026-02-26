@@ -1,0 +1,52 @@
+/* ============================================
+   Submitted Card — Success State (Fix 4)
+   Uses BHR primary tokens for a calm, on-brand look
+   ============================================ */
+
+.submitted-card {
+  background: var(--color-primary-weak, #f0f9ed);
+  border: 1.5px solid var(--color-primary-strong, #2e7918);
+  border-radius: 12px;
+  padding: 16px;
+  animation: cardAppear 0.35s ease-out;
+}
+
+:root.dark .submitted-card {
+  background: rgba(46, 121, 24, 0.08);
+  border-color: rgba(46, 121, 24, 0.5);
+}
+
+@keyframes cardAppear {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.submitted-card__icon {
+  color: var(--color-primary-strong, #2e7918);
+  margin-bottom: 8px;
+}
+
+.submitted-card__heading {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-primary-strong, #2e7918);
+  margin-bottom: 4px;
+}
+
+:root.dark .submitted-card__heading {
+  color: var(--color-primary-medium, #4a9e2f);
+}
+
+.submitted-card__summary {
+  font-size: 13px;
+  color: var(--text-neutral-strong);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.submitted-card__approver {
+  font-size: 12px;
+  color: var(--text-neutral-medium);
+  opacity: 0.8;
+}

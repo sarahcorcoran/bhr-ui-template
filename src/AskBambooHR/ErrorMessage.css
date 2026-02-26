@@ -1,0 +1,47 @@
+/* ============================================
+   Error Message Bubble — light red/pink background
+   Distinct from normal AI messages
+   ============================================ */
+
+.error-bubble {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  animation: msgAppear 0.25s ease-out;
+}
+
+:root.dark .error-bubble {
+  background: rgba(220, 38, 38, 0.08);
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+.error-bubble__icon {
+  flex-shrink: 0;
+  color: #dc2626;
+  margin-top: 1px;
+}
+
+.error-bubble__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.error-bubble__text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #991b1b;
+}
+
+:root.dark .error-bubble__text {
+  color: #fca5a5;
+}
+
+.error-bubble__retry {
+  align-self: flex-start;
+}

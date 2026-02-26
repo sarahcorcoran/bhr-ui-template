@@ -88,6 +88,11 @@ import {
   faSpinner,
   faArrowLeft,
   faRotateLeft,
+  faBars,
+  faBug,
+  faTriangleExclamation,
+  faCircleExclamation,
+  faCopy,
 } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -119,6 +124,8 @@ import {
   Inbox,
   Settings,
   CirclePlus,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
 
 export type IconName =
@@ -229,7 +236,14 @@ export type IconName =
   | 'house-laptop'
   | 'spinner'
   | 'arrow-left'
-  | 'rotate-left';
+  | 'rotate-left'
+  | 'bars'
+  | 'bug'
+  | 'triangle-exclamation'
+  | 'circle-exclamation'
+  | 'copy'
+  | 'maximize-2'
+  | 'minimize-2';
 
 interface IconProps {
   name: IconName;
@@ -341,6 +355,11 @@ const faIconMap = {
   'spinner': faSpinner,
   'arrow-left': faArrowLeft,
   'rotate-left': faRotateLeft,
+  'bars': faBars,
+  'bug': faBug,
+  'triangle-exclamation': faTriangleExclamation,
+  'circle-exclamation': faCircleExclamation,
+  'copy': faCopy,
 } as const;
 
 export function Icon({ name, size = 24, className = '', variant = 'solid', style }: IconProps) {
@@ -421,6 +440,14 @@ export function Icon({ name, size = 24, className = '', variant = 'solid', style
 
   if (name === 'circle-plus-lined') {
     return <CirclePlus size={size} className={className} strokeWidth={1.5} style={style} />;
+  }
+
+  if (name === 'maximize-2') {
+    return <Maximize2 size={size} className={className} strokeWidth={2.25} style={style} />;
+  }
+
+  if (name === 'minimize-2') {
+    return <Minimize2 size={size} className={className} strokeWidth={2.25} style={style} />;
   }
 
   // Handle icons that need Lucide for regular variant
