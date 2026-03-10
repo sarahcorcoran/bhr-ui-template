@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Icon } from '../Icon';
 import { useTheme } from '../../contexts/ThemeContext';
-import avatarSmall from '../../assets/images/avatar-small.png';
 
 const NAV_STORAGE_KEY = 'bhr-nav-expanded';
+
+/** Routes that have active pages — all others are disabled in the nav */
+const ACTIVE_ROUTES = new Set(['/', '/reports']);
 
 interface NavItem {
   path: string;
@@ -63,67 +65,100 @@ export function GlobalNav({ className = '' }: GlobalNavProps) {
     <nav
       className={`
         fixed left-0 top-0 h-full z-50
-        flex flex-col justify-between
+        flex flex-col justify-between items-start
         bg-[var(--surface-neutral-white)]
-        pt-6 pb-10 px-8
+        p-6
         transition-[width] duration-300 ease-in-out
-        ${effectiveExpanded ? 'w-[240px] delay-0' : 'w-[120px] delay-[50ms]'}
+        ${effectiveExpanded ? 'w-[240px] delay-0' : 'w-[88px] delay-[50ms]'}
         ${className}
       `}
     >
       {/* Top Section - Nav Items */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-1">
         {/* Nav Items */}
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
+          const isEnabled = ACTIVE_ROUTES.has(item.path);
 
+          const sharedClassName = `
+            flex items-center
+            rounded-[var(--radius-small)]
+            transition-colors duration-200
+            ${effectiveExpanded ? 'gap-3 px-3 py-2.5' : 'w-10 h-10 justify-center'}
+          `;
+
+          // Active routes use NavLink for navigation
+          if (isEnabled) {
+            return (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={`
+                  ${sharedClassName}
+                  ${isActive
+                    ? 'bg-[var(--surface-neutral-x-weak)]'
+                    : 'hover:bg-[var(--surface-neutral-xx-weak)]'
+                  }
+                `}
+              >
+                <Icon
+                  name={item.icon}
+                  size={20}
+                  variant={isActive ? 'solid' : 'regular'}
+                  className={`
+                    shrink-0 transition-colors duration-200
+                    ${isActive
+                      ? 'text-[var(--color-primary-strong)]'
+                      : 'text-[var(--icon-neutral-x-strong)]'
+                    }
+                  `}
+                />
+                <span
+                  className={`
+                    font-medium text-sm leading-5 whitespace-nowrap
+                    transition-opacity duration-300
+                    ${effectiveExpanded ? 'opacity-100 delay-[50ms]' : 'opacity-0 w-0 overflow-hidden delay-0'}
+                    ${isActive
+                      ? 'text-[var(--text-neutral-xx-strong)]'
+                      : 'text-[var(--text-neutral-x-strong)]'
+                    }
+                  `}
+                >
+                  {item.label}
+                </span>
+              </NavLink>
+            );
+          }
+
+          // Non-active routes look identical but don't navigate
           return (
-            <NavLink
+            <div
               key={item.path}
-              to={item.path}
-              className={`
-                flex items-center
-                rounded-[var(--radius-small)]
-                transition-colors duration-200
-                ${effectiveExpanded ? 'gap-4 px-4 py-4' : 'w-14 h-14 justify-center'}
-                ${isActive
-                  ? 'bg-[var(--surface-neutral-x-weak)]'
-                  : 'hover:bg-[var(--surface-neutral-xx-weak)]'
-                }
-              `}
+              className={`${sharedClassName} hover:bg-[var(--surface-neutral-xx-weak)] cursor-default`}
             >
               <Icon
                 name={item.icon}
-                size={24}
-                variant={isActive ? 'solid' : 'regular'}
-                className={`
-                  shrink-0 transition-colors duration-200
-                  ${isActive
-                    ? 'text-[var(--color-primary-strong)]'
-                    : 'text-[var(--icon-neutral-x-strong)]'
-                  }
-                `}
+                size={20}
+                variant="regular"
+                className="shrink-0 text-[var(--icon-neutral-x-strong)]"
               />
               <span
                 className={`
-                  font-medium text-base leading-6 whitespace-nowrap
+                  font-medium text-sm leading-5 whitespace-nowrap
                   transition-opacity duration-300
+                  text-[var(--text-neutral-x-strong)]
                   ${effectiveExpanded ? 'opacity-100 delay-[50ms]' : 'opacity-0 w-0 overflow-hidden delay-0'}
-                  ${isActive
-                    ? 'text-[var(--text-neutral-xx-strong)]'
-                    : 'text-[var(--text-neutral-x-strong)]'
-                  }
                 `}
               >
                 {item.label}
               </span>
-            </NavLink>
+            </div>
           );
         })}
       </div>
 
       {/* Bottom Section - Theme Toggle, Account, and Expand/Collapse */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-1">
         {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
@@ -132,18 +167,18 @@ export function GlobalNav({ className = '' }: GlobalNavProps) {
             rounded-[var(--radius-small)]
             transition-colors duration-200
             hover:bg-[var(--surface-neutral-xx-weak)]
-            ${effectiveExpanded ? 'gap-4 px-4 py-4' : 'w-14 h-14 justify-center'}
+            ${effectiveExpanded ? 'gap-3 px-3 py-2.5' : 'w-10 h-10 justify-center'}
           `}
           aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
           <Icon
             name={isDark ? 'sun' : 'moon'}
-            size={24}
+            size={20}
             className="shrink-0 text-[var(--icon-neutral-x-strong)]"
           />
           <span
             className={`
-              font-medium text-base text-[var(--text-neutral-x-strong)]
+              font-medium text-sm text-[var(--text-neutral-x-strong)]
               transition-opacity duration-300
               ${effectiveExpanded ? 'opacity-100 delay-[50ms]' : 'opacity-0 w-0 overflow-hidden delay-0'}
             `}
@@ -158,23 +193,20 @@ export function GlobalNav({ className = '' }: GlobalNavProps) {
             flex items-center
             bg-[var(--surface-neutral-x-weak)]
             rounded-[var(--radius-small)]
-            ${effectiveExpanded ? 'gap-4 px-4 py-3' : 'w-14 h-14 justify-center'}
+            ${effectiveExpanded ? 'gap-3 px-3 py-2' : 'w-10 h-10 justify-center'}
           `}
         >
-          <img
-            src={avatarSmall}
-            alt="Account"
-            className="w-8 h-8 shrink-0 rounded-[var(--radius-xx-small)] object-cover"
-            style={{ boxShadow: 'var(--shadow-100)' }}
-          />
+          <div className="w-7 h-7 shrink-0 rounded-full bg-[#e8e6e4] flex items-center justify-center">
+            <Icon name="circle-user" size={16} className="text-[#c5c2bf]" />
+          </div>
           <span
             className={`
-              font-medium text-base text-[var(--text-neutral-x-strong)]
+              font-medium text-sm text-[var(--text-neutral-x-strong)]
               transition-opacity duration-300
               ${effectiveExpanded ? 'opacity-100 delay-[50ms]' : 'opacity-0 w-0 overflow-hidden delay-0'}
             `}
           >
-            Account
+            Rad Bencher
           </span>
         </div>
 
@@ -188,18 +220,18 @@ export function GlobalNav({ className = '' }: GlobalNavProps) {
               rounded-[var(--radius-small)]
               transition-colors duration-200
               hover:bg-[var(--surface-neutral-xx-weak)]
-              ${effectiveExpanded ? 'gap-4 px-4 py-4' : 'w-14 h-14 justify-center'}
+              ${effectiveExpanded ? 'gap-3 px-3 py-2.5' : 'w-10 h-10 justify-center'}
             `}
             aria-label={effectiveExpanded ? 'Collapse navigation' : 'Expand navigation'}
           >
             <Icon
               name={effectiveExpanded ? 'arrow-left-from-line' : 'arrow-right-from-line'}
-              size={24}
+              size={20}
               className="shrink-0 text-[var(--icon-neutral-x-strong)]"
             />
             <span
               className={`
-                font-medium text-base text-[var(--text-neutral-x-strong)]
+                font-medium text-sm text-[var(--text-neutral-x-strong)]
                 transition-opacity duration-300
                 ${effectiveExpanded ? 'opacity-100 delay-[50ms]' : 'opacity-0 w-0 overflow-hidden delay-0'}
               `}

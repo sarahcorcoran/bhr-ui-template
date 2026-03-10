@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Icon } from '../Icon';
-import pineappleLogo from '../../assets/images/pineapple-logo-cropped.png';
+import bamboohrLogo from '../../assets/images/bamboohr-logo.svg';
 
 interface GlobalHeaderProps {
   className?: string;
@@ -30,28 +30,29 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
   return (
     <header
       className={`
-        flex items-center justify-between gap-6
+        flex flex-col justify-center items-end
         bg-[var(--surface-neutral-white)]
-        py-8 pr-10
+        pt-6 pr-4 pb-6 pl-0
         max-w-[2000px]
         ${className}
       `}
     >
+      <div className="flex items-center justify-between gap-4 w-full">
       {/* Logo */}
       <img
-        src={pineappleLogo}
-        alt="Pineapple Inc"
-        className="h-[48px] w-auto"
+        src={bamboohrLogo}
+        alt="BambooHR"
+        className="h-[48px] w-auto shrink-0"
       />
 
       {/* Right Section */}
-      <div className="flex items-center gap-6 flex-1 justify-end">
+      <div className="flex items-center gap-4 flex-1 justify-end">
         {/* Search Bar */}
-        <div className="w-[288px]">
+        <div className="w-[260px]">
           <div
             className="
               flex items-center gap-2
-              h-[40px] px-4 py-2
+              h-[36px] px-3
               bg-[var(--surface-neutral-white)]
               border border-[var(--border-neutral-medium)]
               rounded-[var(--radius-full)]
@@ -60,15 +61,15 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
           >
             <Icon
               name="magnifying-glass"
-              size={12}
+              size={13}
               className="text-[var(--text-neutral-weak)]"
             />
             <input
               type="text"
-              placeholder="Ask or search for anything..."
+              placeholder="Search..."
               className="
                 flex-1 bg-transparent
-                text-sm leading-5
+                text-[13px] leading-5
                 text-[var(--text-neutral-weak)]
                 placeholder:text-[var(--text-neutral-weak)]
                 outline-none
@@ -78,11 +79,11 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
         </div>
 
         {/* Utility Icons */}
-        <div className="flex items-start gap-1">
+        <div className="flex items-center gap-1">
           <button
             className={`
               flex items-center justify-center
-              w-[42px] h-[42px] px-[9px] py-[10px]
+              w-[36px] h-[36px]
               rounded-[var(--radius-xx-small)]
               transition-colors duration-200
               ${
@@ -96,7 +97,7 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
           >
             <Icon
               name="inbox"
-              size={24}
+              size={20}
               variant={isOnInbox ? 'solid' : 'regular'}
               className={isOnInbox ? 'text-[var(--color-primary-strong)]' : 'text-[var(--icon-neutral-x-strong)]'}
             />
@@ -105,7 +106,7 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
           <button
             className="
               flex items-center justify-center
-              p-[9px]
+              w-[36px] h-[36px]
               rounded-[var(--radius-xx-small)]
               hover:bg-[var(--surface-neutral-xx-weak)]
               transition-colors duration-200
@@ -114,7 +115,7 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
           >
             <Icon
               name="circle-question"
-              size={24}
+              size={20}
               variant="regular"
               className="text-[var(--icon-neutral-x-strong)]"
             />
@@ -123,7 +124,7 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
           <button
             className={`
               flex items-center justify-center
-              p-[9px]
+              w-[36px] h-[36px]
               rounded-[var(--radius-xx-small)]
               transition-colors duration-200
               ${
@@ -137,14 +138,14 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
           >
             <Icon
               name="gear"
-              size={24}
+              size={20}
               variant={isOnSettings ? 'solid' : 'regular'}
               className={isOnSettings ? 'text-[var(--color-primary-strong)]' : 'text-[var(--icon-neutral-x-strong)]'}
             />
           </button>
 
           <button
-            className={`h-[40px] px-4 text-[15px] font-semibold rounded-full flex items-center gap-2 transition-all ${
+            className={`h-[36px] px-4 text-[14px] font-semibold rounded-full flex items-center gap-2 transition-all ${
               isChatPanelOpen
                 ? 'text-white bg-[var(--color-primary-strong)] hover:opacity-90'
                 : 'text-[var(--color-primary-strong)] bg-[var(--surface-neutral-white)] border-2 border-[var(--color-primary-strong)] hover:bg-[var(--surface-neutral-xx-weak)]'
@@ -155,10 +156,11 @@ export function GlobalHeader({ className = '' }: GlobalHeaderProps) {
               localStorage.setItem('bhr-chat-panel-open', String(!isOpen));
             }}
           >
-            <Icon name="sparkles" size={16} />
+            <Icon name="sparkles" size={14} />
             Ask
           </button>
         </div>
+      </div>
       </div>
     </header>
   );

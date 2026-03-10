@@ -5,8 +5,8 @@ import type { DemoIntent } from '../data/demoScriptData';
 
 interface DemoContextType {
   isDemoMode: boolean;
-  currentScene: 'scene1' | 'scene2' | 'scene3' | null;
-  setCurrentScene: (scene: 'scene1' | 'scene2' | 'scene3' | null) => void;
+  currentScene: 'scene1' | 'scene2' | 'scene3' | 'scene4' | null;
+  setCurrentScene: (scene: 'scene1' | 'scene2' | 'scene3' | 'scene4' | null) => void;
   matchIntent: (input: string, intents: DemoIntent[]) => DemoIntent | null;
   resetDemo: () => void;
   demoResetCounter: number;
@@ -14,7 +14,7 @@ interface DemoContextType {
 
 const DemoContext = createContext<DemoContextType | undefined>(undefined);
 
-const DEMO_ROUTES = ['/demo', '/reports'];
+const DEMO_ROUTES = ['/demo', '/reports', '/omni-explore'];
 
 function isDemoRoute(pathname: string): boolean {
   return DEMO_ROUTES.some(route => pathname.startsWith(route));
@@ -22,11 +22,26 @@ function isDemoRoute(pathname: string): boolean {
 
 /**
  * Keyword scoring intent matcher.
- * Case-insensitive. Score = number of keyword matches in input.
- * Minimum threshold: 2. Highest score wins. First match breaks ties.
+ * 1. Solo triggers: if any intent has a soloTriggers array and the input
+ *    contains one of those words, that intent matches immediately.
+ * 2. Keyword scoring: case-insensitive, score = number of keyword matches.
+ *    Minimum threshold: 2. Highest score wins. First match breaks ties.
  */
 function matchIntent(input: string, intents: DemoIntent[]): DemoIntent | null {
   const lowerInput = input.toLowerCase();
+
+  // Pass 1: check soloTriggers (single-word instant match)
+  for (const intent of intents) {
+    if (intent.soloTriggers) {
+      for (const trigger of intent.soloTriggers) {
+        if (lowerInput.includes(trigger.toLowerCase())) {
+          return intent;
+        }
+      }
+    }
+  }
+
+  // Pass 2: keyword scoring with minimum threshold of 2
   let bestIntent: DemoIntent | null = null;
   let bestScore = 0;
 
@@ -48,7 +63,7 @@ function matchIntent(input: string, intents: DemoIntent[]): DemoIntent | null {
 
 export function DemoProvider({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
-  const [currentScene, setCurrentScene] = useState<'scene1' | 'scene2' | 'scene3' | null>(null);
+  const [currentScene, setCurrentScene] = useState<'scene1' | 'scene2' | 'scene3' | 'scene4' | null>(null);
   const [demoResetCounter, setDemoResetCounter] = useState(0);
 
   // Determine if we're in demo mode based on current route

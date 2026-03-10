@@ -7,6 +7,8 @@
 export interface DemoIntent {
   id: string;
   keywords: string[];
+  /** Single words that trigger this intent alone (bypasses minimum score threshold) */
+  soloTriggers?: string[];
   thinkingText: string;
   thinkingDuration: number;
   response: string;
@@ -399,4 +401,107 @@ export const scene3RecentlyViewedReports: RecentlyViewedReport[] = [
   { name: 'Headcount by Department', lastViewed: 'Mar 8', createdBy: 'Rad Bencher' },
   { name: 'Turnover Rate — Q1', lastViewed: 'Mar 5', createdBy: 'Woger Roods' },
   { name: 'Compensation Summary', lastViewed: 'Mar 1', createdBy: 'Rad Bencher' },
+];
+
+// ============================================================
+// Scene 4 — Omni MCP (Diversity Breakdown)
+// ============================================================
+
+export interface Scene4ThinkingStep {
+  label: string;
+  delay: number;
+}
+
+export interface DiversityDataPoint {
+  department: string;
+  female: number;
+  male: number;
+  nonBinary: number;
+}
+
+export interface OmniField {
+  label: string;
+  value: string;
+}
+
+export const scene4Intent: DemoIntent = {
+  id: 'omni-diversity',
+  keywords: ['diversity', 'gender', 'breakdown', 'representation', 'demographics', 'male', 'female', 'omni', 'department', 'split', 'show', 'view', 'dei', 'workforce'],
+  soloTriggers: ['diversity', 'dei', 'representation', 'workforce'],
+  thinkingText: 'Analyzing workforce demographics...',
+  thinkingDuration: 2400,
+  response: '',
+  actionButton: {
+    label: 'View Data Workbook',
+    navigateTo: '/omni-explore',
+    closeAsk: false,
+  },
+};
+
+export const scene4ThinkingSteps: Scene4ThinkingStep[] = [
+  { label: 'Querying employee demographics...', delay: 0 },
+  { label: 'Aggregating by department...', delay: 600 },
+  { label: 'Rendering in Omni', delay: 1200 },
+];
+
+export const scene4ResponseHeader = 'Gender Diversity by Department';
+
+export const scene4DiversityData: DiversityDataPoint[] = [
+  { department: 'Engineering', female: 34, male: 52, nonBinary: 4 },
+  { department: 'Product', female: 18, male: 14, nonBinary: 2 },
+  { department: 'Design', female: 12, male: 6, nonBinary: 1 },
+  { department: 'Marketing', female: 15, male: 9, nonBinary: 1 },
+  { department: 'Sales', female: 22, male: 28, nonBinary: 1 },
+  { department: 'HR', female: 10, male: 4, nonBinary: 1 },
+  { department: 'Finance', female: 8, male: 11, nonBinary: 0 },
+];
+
+export const scene4OmniFields: OmniField[] = [
+  { label: 'Metric', value: 'Headcount' },
+  { label: 'Group By', value: 'Department' },
+  { label: 'Split By', value: 'Gender' },
+  { label: 'Date Range', value: 'Current' },
+  { label: 'Status', value: 'Active Employees' },
+];
+
+// --- Scene 4: Omni Explorer data ---
+
+export interface EthnicityDataPoint {
+  ethnicity: string;
+  count: number;
+}
+
+export const scene4EthnicityData: EthnicityDataPoint[] = [
+  { ethnicity: 'Hispanic or Latino', count: 68000 },
+  { ethnicity: 'White', count: 102000 },
+  { ethnicity: 'Two or More Races', count: 85000 },
+  { ethnicity: 'Asian', count: 28000 },
+];
+
+export interface OmniExplorerField {
+  label: string;
+  type: 'date' | 'currency' | 'text' | 'number' | 'select';
+  highlighted?: boolean;
+}
+
+export const scene4ExplorerFields: OmniExplorerField[] = [
+  { label: 'As Of Date', type: 'date' },
+  { label: 'Compensation Base Amount (Rang…', type: 'currency' },
+  { label: 'Compensation Base Denomination', type: 'currency' },
+  { label: 'Compensation Base Type', type: 'currency' },
+  { label: 'Compensation Basis', type: 'currency' },
+  { label: 'Employee Age Range', type: 'text' },
+  { label: 'Employee Department', type: 'text' },
+  { label: 'Employee Division', type: 'text' },
+  { label: 'Employee Employment Status', type: 'text' },
+  { label: 'Employee Ethnicity', type: 'text', highlighted: true },
+  { label: 'Employee Gender', type: 'text', highlighted: true },
+  { label: 'Employee ID', type: 'number' },
+  { label: 'Employee Job Title', type: 'text' },
+  { label: 'Employee Location', type: 'text' },
+  { label: 'Employee Marital Status', type: 'text' },
+  { label: 'Employee Number of Direct Reports', type: 'number' },
+  { label: 'Employee Status', type: 'text' },
+  { label: 'Employee Tenure Range', type: 'text' },
+  { label: 'Selection Count', type: 'number' },
 ];

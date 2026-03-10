@@ -3,6 +3,7 @@ export interface ChatMessage {
   type: 'user' | 'ai';
   text: string;
   suggestions?: string[];
+  component?: string;
 }
 
 export interface ChatConversation {

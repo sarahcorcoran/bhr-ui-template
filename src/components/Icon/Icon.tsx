@@ -59,6 +59,7 @@ import {
   faExpand,
   faCompress,
   faDownLeftAndUpRightToCenter,
+  faUpRightAndDownLeftFromCenter,
   faXmark,
   faCircleArrowUp,
   faPaperPlane,
@@ -242,6 +243,7 @@ export type IconName =
   | 'triangle-exclamation'
   | 'circle-exclamation'
   | 'copy'
+  | 'up-right-and-down-left-from-center'
   | 'maximize-2'
   | 'minimize-2';
 
@@ -322,6 +324,7 @@ const faIconMap = {
   'expand': faExpand,
   'compress': faCompress,
   'down-left-and-up-right-to-center': faDownLeftAndUpRightToCenter,
+  'up-right-and-down-left-from-center': faUpRightAndDownLeftFromCenter,
   'xmark': faXmark,
   'circle-arrow-up': faCircleArrowUp,
   'paper-plane': faPaperPlane,

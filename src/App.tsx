@@ -7,7 +7,8 @@ import { ChatTransitionsDemo } from './pages/ChatTransitionsDemo';
 import { TextReflowDemo } from './pages/TextReflowDemo';
 import { TextReflowDemo2 } from './pages/TextReflowDemo2';
 import { CompensationBenchmarksApp } from './pages/CompensationBenchmarks';
-import { DemoDashboard, DemoTimeOffReport, DemoReportBuilder } from './pages/Demo';
+import { DemoDashboard, DemoTimeOffReport, DemoReportBuilder, OmniExplorePage } from './pages/Demo';
+import { AskBambooHR } from './AskBambooHR';
 import { ChatProvider } from './contexts/ChatContext';
 import { DemoProvider } from './contexts/DemoContext';
 
@@ -26,16 +27,23 @@ function App() {
       <BrowserRouter>
         <DemoProvider>
           <Routes>
+            {/* AskBambooHR prototype - Full page, no AppLayout */}
+            <Route path="/ask" element={<AskBambooHR />} />
+
             {/* Chat routes - Full page, no AppLayout */}
             <Route path="/chat" element={<Chat />} />
             <Route path="/chat/:conversationId" element={<Chat />} />
 
-            {/* Demo routes for testing transitions */}
-            <Route path="/chat-transitions-demo" element={<ChatTransitionsDemo />} />
-            <Route path="/text-reflow-demo" element={<TextReflowDemo />} />
-            <Route path="/text-reflow-demo-2" element={<TextReflowDemo2 />} />
-            <Route path="/datepicker-demo" element={<DatePickerDemo />} />
-            <Route path="/job-ai-prototype" element={<JobAIPrototype />} />
+            {/* inactive - not yet designed */}
+            {/* <Route path="/chat-transitions-demo" element={<ChatTransitionsDemo />} /> */}
+            {/* inactive - not yet designed */}
+            {/* <Route path="/text-reflow-demo" element={<TextReflowDemo />} /> */}
+            {/* inactive - not yet designed */}
+            {/* <Route path="/text-reflow-demo-2" element={<TextReflowDemo2 />} /> */}
+            {/* inactive - not yet designed */}
+            {/* <Route path="/datepicker-demo" element={<DatePickerDemo />} /> */}
+            {/* inactive - not yet designed */}
+            {/* <Route path="/job-ai-prototype" element={<JobAIPrototype />} /> */}
 
             {/* Regular routes with AppLayout */}
             <Route
@@ -44,21 +52,33 @@ function App() {
                 <AppLayout>
                   <Routes>
                     <Route path="/" element={<HomeOrDemo />} />
-                    <Route path="/my-info" element={<MyInfo />} />
-                    <Route path="/people" element={<People />} />
-                    <Route path="/people/new" element={<NewEmployeePage />} />
-                    <Route path="/hiring" element={<Hiring />} />
-                    <Route path="/hiring/job/:id" element={<JobOpeningDetail />} />
-                    <Route path="/hiring/new" element={<CreateJobOpening />} />
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/my-info" element={<MyInfo />} /> */}
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/people" element={<People />} /> */}
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/people/new" element={<NewEmployeePage />} /> */}
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/hiring" element={<Hiring />} /> */}
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/hiring/job/:id" element={<JobOpeningDetail />} /> */}
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/hiring/new" element={<CreateJobOpening />} /> */}
                     <Route path="/reports" element={<Reports />} />
                     <Route path="/reports/time-off" element={<DemoTimeOffReport />} />
                     <Route path="/reports/builder" element={<DemoReportBuilder />} />
-                    <Route path="/files" element={<Files />} />
-                    <Route path="/payroll" element={<Payroll />} />
-                    <Route path="/inbox" element={<Inbox />} />
-                    <Route path="/settings" element={<Settings />} />
-                    <Route path="/compensation" element={<CompensationBenchmarksApp />} />
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/files" element={<Files />} /> */}
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/payroll" element={<Payroll />} /> */}
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/inbox" element={<Inbox />} /> */}
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/settings" element={<Settings />} /> */}
+                    {/* inactive - not yet designed */}
+                    {/* <Route path="/compensation" element={<CompensationBenchmarksApp />} /> */}
                     <Route path="/demo" element={<DemoDashboard />} />
+                    <Route path="/omni-explore" element={<OmniExplorePage />} />
                   </Routes>
                 </AppLayout>
               }

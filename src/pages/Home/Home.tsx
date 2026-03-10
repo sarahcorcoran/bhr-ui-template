@@ -1,13 +1,5 @@
-import { Avatar, Button, TextHeadline, Gridlet } from '../../components';
-import avatarLarge from '../../assets/images/avatar-large.png';
-
-// Mock user data
-const user = {
-  name: 'Jess',
-  title: 'Director, Demand Generation',
-  department: 'Marketing',
-  avatar: avatarLarge,
-};
+import { Gridlet } from '../../components';
+import { Icon } from '../../components/Icon';
 
 
 export function Home() {
@@ -16,22 +8,28 @@ export function Home() {
       {/* Profile Header */}
       <div className="flex items-center justify-between mb-10">
         <div className="flex items-center gap-8">
-          <Avatar src={user.avatar} size="large" />
+          {/* Default avatar — grey circle with person silhouette */}
+          <div
+            className="w-[96px] h-[96px] rounded-full bg-[#e8e6e4] flex items-center justify-center shrink-0"
+            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+          >
+            <Icon name="circle-user" size={56} className="text-[#c5c2bf]" />
+          </div>
           <div className="flex flex-col">
-            <TextHeadline size="x-large" color="primary">
-              {`Hi, ${user.name}`}
-            </TextHeadline>
+            <h1
+              className="text-[44px] font-bold leading-[52px] text-[var(--color-primary-strong)]"
+              style={{ fontFamily: 'Fields, system-ui, sans-serif' }}
+            >
+              Good morning, Rad
+            </h1>
             <p
               className="font-medium text-[15px] leading-[22px] text-[var(--text-neutral-medium)]"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
-              {user.title} in {user.department}
+              HR Admin at OakHR
             </p>
           </div>
         </div>
-        <Button icon="pen-to-square" variant="standard">
-          Edit
-        </Button>
       </div>
 
       {/* Gridlet Dashboard */}

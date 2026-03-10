@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { GlobalNav } from '../components/GlobalNav';
 import { GlobalHeader } from '../components/GlobalHeader';
 import { AIChatPanel } from '../components/AIChatPanel';
@@ -13,6 +14,9 @@ interface AppLayoutProps {
 }
 
 function AppLayout({ children }: AppLayoutProps) {
+  const location = useLocation();
+  const isOmniExplore = location.pathname === '/omni-explore';
+
   const [isNavExpanded, setIsNavExpanded] = useState(() => {
     const stored = localStorage.getItem(NAV_STORAGE_KEY);
     return stored ? JSON.parse(stored) : false;
@@ -82,6 +86,13 @@ function AppLayout({ children }: AppLayoutProps) {
     setIsChatExpanded(expanded);
   };
 
+  // Auto-close floating chat panel when entering /omni-explore
+  useEffect(() => {
+    if (isOmniExplore && isChatPanelOpen) {
+      handleCloseChatPanel();
+    }
+  }, [isOmniExplore]);
+
   // Check for tablet viewport
   useEffect(() => {
     const checkTablet = () => {
@@ -94,10 +105,10 @@ function AppLayout({ children }: AppLayoutProps) {
 
   // Calculate effective nav width
   const effectiveExpanded = isTablet ? false : isNavExpanded;
-  const navWidth = effectiveExpanded ? 240 : 120;
+  const navWidth = effectiveExpanded ? 240 : 88;
   // Chat panel width (399) + 16px gap - main's pr-10 (40px) = 375px
   // When expanded, don't compress main content
-  const chatPanelWidth = (isChatPanelOpen && !isChatExpanded) ? 375 : 0;
+  const chatPanelWidth = (isChatPanelOpen && !isChatExpanded && !isOmniExplore) ? 375 : 0;
 
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-[var(--surface-neutral-white)]">
@@ -137,13 +148,15 @@ function AppLayout({ children }: AppLayoutProps) {
         </main>
       </div>
 
-      {/* AI Chat Panel */}
-      <AIChatPanel
-        isOpen={isChatPanelOpen}
-        onClose={handleCloseChatPanel}
-        isExpanded={isChatExpanded}
-        onExpandChange={handleChatExpandChange}
-      />
+      {/* AI Chat Panel — hidden on /omni-explore (page has its own docked panel) */}
+      {!isOmniExplore && (
+        <AIChatPanel
+          isOpen={isChatPanelOpen}
+          onClose={handleCloseChatPanel}
+          isExpanded={isChatExpanded}
+          onExpandChange={handleChatExpandChange}
+        />
+      )}
     </div>
   );
 }
